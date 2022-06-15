@@ -2,10 +2,10 @@
 ### Example user template
 
 # IntelliJ project files
-.idea
-*.iml
-out
-gen
+.settings/
+node_modules/
+.idea/
+package-lock.json/
 ### Actionscript template
 # Build and Release Folders
 bin-debug/
