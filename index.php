@@ -18,6 +18,7 @@
     //$inputData = $_GET["poke"];
 //POKEMON API URLµ
 if (isset($_POST['poke'])) {
+
     //var_dump($_POST);
     //var_dump($_GET);
     $searchPoke = $_POST['poke'];
@@ -30,9 +31,14 @@ if (isset($_POST['poke'])) {
 //READ THE JSON FILE
     $json_data = file_get_contents($api_url);
 
+   // print_r($json_data);
+
+    if(!$json_data) return;
+
 //DECODE JSON DATA INTO PHP ARRAY
     $response_data = json_decode($json_data, true);
     $pokeImage = $response_data['sprites']['front_shiny'];
+    if(!$pokeImage) return;
     echo"<pre>";
 
 //print_r($response_data);
@@ -79,16 +85,22 @@ if (isset($_POST['poke'])) {
             </form>
 
             <?php if (isset($_POST['poke'])) {
-             echo $name;}?>
+             echo $name;}?> <br>
 
             <?php
                 if (isset($_POST['poke'])) {
-                    for ($i=0; $i<4;$i++){
-                        print_r($response_data['moves'][$i]['move']['name']);
+
+                    if (count($response_data['moves']) > 1 ){
+                        for ($i=0; $i<=4;$i++){
+                            print_r($response_data['moves'][$i]['move']['name']);
+                        }
+                    } else if (count($response_data['moves']) === 1){
+                            print_r($response_data['moves']['0']['move']['name']);
                     }
+
                 }
-            ?>
-            <?php if (isset($_POST['poke'])) {echo $abilities;}?>
+            ?> <br>
+            <?php if (isset($_POST['poke'])) {echo $abilities;}?> <br>
 
             <?php if (isset($_POST['poke'])) {echo $id;} ?> <br>
 
