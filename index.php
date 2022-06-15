@@ -16,8 +16,13 @@
 <?php
 //if(isset($_GET['poke'])){
     //$inputData = $_GET["poke"];
-//POKEMON API URL
-    $api_url = 'https://pokeapi.co/api/v2/pokemon/1';
+//POKEMON API URLµ
+if (isset($_POST['poke'])) {
+    //var_dump($_POST);
+    //var_dump($_GET);
+    $searchPoke = $_POST['poke'];
+    $api_url = 'https://pokeapi.co/api/v2/pokemon/' . $searchPoke;
+
 //$poke_data = json_decode(file_get_contents($api_url), true);
 //echo "<pre>";
 //print_r($poke_data);
@@ -32,11 +37,17 @@
 
 //print_r($response_data);
 // this is the way to filter in api with array
-    print_r($response_data['forms']['0']['name']); echo"<br>";
-    print_r($response_data['moves']['0']['move']['name']);echo"<br>";
-    print_r($response_data['abilities']['0']['ability']['name']);echo"<br>";
-    print_r($response_data['sprites']['front_shiny']);echo"<br>";
-    print_r($response_data['id']);
+
+    $name = $response_data['forms']['0']['name'];
+    $moves = $response_data['moves']['0']['move']['name'];
+    $abilities = $response_data['abilities']['0']['ability']['name'];
+    $sprites = $response_data['sprites']['front_shiny'];
+    $id = $response_data['id'];
+    //print_r($response_data['forms']['0']['name']); echo"<br>";
+    //print_r($response_data['moves']['0']['move']['name']);echo"<br>";
+    //print_r($response_data['abilities']['0']['ability']['name']);echo"<br>";
+    //print_r($response_data['sprites']['front_shiny']);echo"<br>";
+    //print_r($response_data['id']);
 
 
 
@@ -53,20 +64,41 @@
 
 //}
 
-?>
+}
 
- <img src="<?php echo $pokeImage;?>">
+?>
 
 <div class="container-main" >
         <div class="header">
             <div><h1>Pokedex</h1></div>
-            <div><img src="Poke-Ball-Gloss_01_Top-View.png" height="50px" width="50px"></div>
         </div>
         <div class="search">
-            <form class="form">
+            <form action="" class="form" method="post">
                     <input type="text" name="poke" id="poke-id" placeholder="Id or name of pokemon"/>
-                    <button type="button" id="run">Go</button>
+                    <button type="submit" id="run">Go</button>
             </form>
+
+            <?php if (isset($_POST['poke'])) {
+             echo $name;}?>
+
+            <?php
+                if (isset($_POST['poke'])) {
+                    for ($i=0; $i<4;$i++){
+                        print_r($response_data['moves'][$i]['move']['name']);
+                    }
+                }
+            ?>
+            <?php if (isset($_POST['poke'])) {echo $abilities;}?>
+
+            <?php if (isset($_POST['poke'])) {echo $id;} ?> <br>
+
+            <img src ="<?php
+            if (isset($_POST['poke'])) {
+                echo $pokeImage;
+            }?>">
+
+
+
         </div>
         <div class="features">
             <div class="align-features">
