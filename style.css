@@ -71,3 +71,6 @@ button{
 img{
     height: 250px;
 }
+.show{
+    visibility: hidden;
+}
