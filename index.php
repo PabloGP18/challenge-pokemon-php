@@ -27,8 +27,8 @@ if (isset($_POST['poke'])) {
     $idStr="Id:";
     $id = $response_data['id'];
     $src = "src";
-
-//this is an example to filter in api with object
+    $boxShadow = 'style="box-shadow: 20px 40px 40px 20px red"';
+    //this is an example to filter in api with object
 //print_r($response_data->moves);
 }
 ?>
@@ -45,7 +45,7 @@ if (isset($_POST['poke'])) {
     <title>Document</title>
 </head>
 <body>
-<div class="container-main" >
+<div class="container-main">
         <div class="header">
             <div><h1>Pokedex</h1></div>
         </div>
@@ -58,7 +58,7 @@ if (isset($_POST['poke'])) {
         </div>
         <div class="features">
             <div class="align-features">
-                <div class="align-text-features" id="border">
+                <div class="align-text-features" <?php if(isset($_POST['poke'])){echo $boxShadow;}?> id="border">
                     <div class="name"><h1><?php
                             if
                             (isset($_POST['poke'])) {
@@ -101,7 +101,7 @@ if (isset($_POST['poke'])) {
 
                                 if (count($response_data['moves']) > 1 ){
                                     for ($i=0; $i<=4;$i++){
-                                        print_r( $response_data['moves'][$i]['move']['name']);
+                                        print_r($response_data['moves'][$i]['move']['name']);
                                     }
                                 } else if (count($response_data['moves']) === 1){
                                     print_r($response_data['moves']['0']['move']['name']);
