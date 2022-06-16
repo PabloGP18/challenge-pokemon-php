@@ -51,7 +51,7 @@ if (isset($_POST['poke'])) {
         </div>
         <div class="search">
             <form action="" class="form" method="post">
-                    <input type="text" name="poke" id="poke-id" placeholder="Id or name of pokemon"/>
+                    <input type="text" name="poke" id="poke-id" placeholder="Id or name of pokemon!"/>
                     <!--<span class="error">*</*?php if (isset($_POST['poke'])){echo $input_error;}?></span> -->
                     <button type="submit" id="run">Go</button>
             </form>
