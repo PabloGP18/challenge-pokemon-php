@@ -53,9 +53,16 @@ input{
     flex-direction: column;
     height: 387px;
     letter-spacing: 5px;
+
 }
 .align-text-features{
     padding: 30px;
+    display: flex;
+    width: max-content;
+    flex-direction: column;
+    text-align: center;
+
+
 }
 button{
     padding-left: 10px;
