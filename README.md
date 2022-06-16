@@ -2,10 +2,10 @@
 
 ## Learning objectives
 - Starting with PHP
-  - [ x ] To be able to write a simple condition and a simple loop
-  - [ x ] To know how to access external resources (API)
-  - [ x ] To know where to search for PHP documentation
-  - [ x ] To find out how much easier it is to learn a second programming language
+  - [x] To be able to write a simple condition and a simple loop
+  - [x] To know how to access external resources (API)
+  - [x] To know where to search for PHP documentation
+  - [x] To find out how much easier it is to learn a second programming language
 
 ## Tips
 Here are a few functions you will need to help you on your way.
