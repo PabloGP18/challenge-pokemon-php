@@ -68,3 +68,6 @@ button{
     display: flex;
     flex-direction: row;
 }
+img{
+    height: 250px;
+}
